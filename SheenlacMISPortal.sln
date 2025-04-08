@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheenlacMISPortal", "SheenlacMISPortal\SheenlacMISPortal.csproj", "{69B3CB3D-D545-471D-B26E-5126EA1591F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69B3CB3D-D545-471D-B26E-5126EA1591F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B3CB3D-D545-471D-B26E-5126EA1591F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B3CB3D-D545-471D-B26E-5126EA1591F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B3CB3D-D545-471D-B26E-5126EA1591F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23CD62AB-CFA4-4A07-B9FB-846763A3C9DA}
+	EndGlobalSection
+EndGlobal
