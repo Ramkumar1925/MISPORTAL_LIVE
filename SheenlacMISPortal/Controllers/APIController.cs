@@ -1760,421 +1760,7 @@ namespace SheenlacMISPortal.Controllers
 
 
 
-        //        [HttpPost]
-        //        [Route("UpdateVendorUTR")]
-        //        public async Task<IActionResult> UpdateVendorUTR()
-        //        {
-
-
-        //            DataSet ds3 = new DataSet();
-        //            string dsquery3 = "sp_Get_PainterID";
-        //            using (SqlConnection con = new SqlConnection(this.Configuration.GetConnectionString("Database")))
-        //            {
-
-        //                using (SqlCommand cmd = new SqlCommand(dsquery3))
-        //                {
-        //                    cmd.Connection = con;
-        //                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        //                    //  cmd.Parameters.AddWithValue("@FilterValue1", file.Name);
-
-        //                    con.Open();
-
-        //                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        //                    adapter.Fill(ds3);
-        //                    con.Close();
-        //                }
-        //            }
-        //            var empList = ds3.Tables[0].AsEnumerable()
-        //    .Select(dataRow => new painterutr
-        //    {
-        //        PainterName = dataRow.Field<string>("cvendorname"),
-        //        TransactionId = dataRow.Field<string>("cinvoiceno")
-        //    }).ToList();
-
-
-
-
-        //            var AdvanceList = ds3.Tables[1].AsEnumerable()
-        //   .Select(dataRow => new Advanceutr
-        //   {
-        //       cinvoiceno = dataRow.Field<string>("cinvoiceno"),
-        //       cvendorcode = dataRow.Field<string>("cvendorcode"),
-        //       csapremarks = dataRow.Field<string>("csapremarks"),
-        //       corgcode = dataRow.Field<string>("corgcode")
-
-
-        //   }).ToList();
-
-
-        //            List<painterutr> objutrlist = new List<painterutr>();
-        //            List<Advanceutr> objAdvanceutrlist = new List<Advanceutr>();
-
-        //            var AllvendorList = ds3.Tables[2].AsEnumerable()
-        //.Select(dataRow => new vendorutr
-        //{
-        //    cinvoiceno = dataRow.Field<string>("cinvoiceno"),
-        //    cvendorcode = dataRow.Field<string>("cvendorcode"),
-        //    csapremarks = dataRow.Field<string>("csapremarks"),
-        //    corgcode = dataRow.Field<string>("corgcode")
-        //}).ToList();
-
-
-
-
-        //            try
-        //            {
-
-
-
-        //                string[] filesauto = Directory.GetFiles(@"E:\HDFC_UTR");
-        //                var directory = new DirectoryInfo(@"E:\HDFC_UTR");
-        //                var myFile = (from f in directory.GetFiles()
-        //                              orderby f.LastWriteTime descending
-        //                              select f).First();
-
-        //                var myFile3 = (from f in directory.GetFiles()
-        //                               select f).ToList();
-
-
-        //                string filepath = myFile.FullName;
-
-        //                // myFile3.Count
-        //                foreach (FileInfo file in myFile3)
-        //                {
-
-
-
-        //                    DataSet ds2 = new DataSet();
-        //                    string dsquery1 = "sp_Get_utrfileexist";
-        //                    using (SqlConnection con = new SqlConnection(this.Configuration.GetConnectionString("Database")))
-        //                    {
-
-        //                        using (SqlCommand cmd = new SqlCommand(dsquery1))
-        //                        {
-        //                            cmd.Connection = con;
-        //                            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        //                            cmd.Parameters.AddWithValue("@FilterValue1", file.Name);
-
-        //                            con.Open();
-
-        //                            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        //                            adapter.Fill(ds2);
-        //                            con.Close();
-        //                        }
-        //                    }
-        //                    int maxno1 = Convert.ToInt32(ds2.Tables[0].Rows[0][0].ToString());
-        //                    if (maxno1 == 1)
-        //                    {
-        //                        //if (filepath != file)
-        //                        //{
-        //                        try
-        //                        {
-        //                            FileInfo fi = new FileInfo(file.FullName);
-
-        //                        }
-        //                        catch (Exception ex)
-        //                        {
-
-        //                        }
-
-        //                        // fi.Delete();
-        //                    }
-        //                    //}
-
-        //                }
-
-
-
-
-        //            }
-        //            catch (Exception ex)
-        //            {
-
-
-        //            }
-
-
-
-
-        //            List<string> files = new List<string>();
-        //            //E:\Auto\Reverse\bkup1
-        //            //var directory1 = new DirectoryInfo(@"E:\Auto\Reverse\bkup1");
-        //            var directory1 = new DirectoryInfo(@"E:\HDFC_UTR");
-        //            var myFile1 = directory1.GetFiles();
-
-        //            // string[] filesautoprocess = Directory.GetFiles(@"D:\HDFC_UTR");
-        //            //  string[] filesautoprocess = myFile1;
-        //            string filepathprocess = string.Empty;
-
-        //            try
-        //            {
-
-
-        //                //filelistname = myFile.Name;
-        //                foreach (var file in myFile1)
-        //                {
-
-        //                    DataSet ds = new DataSet();
-
-        //                    int ai = 0;
-
-
-
-
-        //                    List<string> listA = new List<string>();
-        //                    string paths = file.FullName;
-        //                    using (var reader = new StreamReader(paths))
-        //                    {
-        //                        List<string> listB = new List<string>();
-        //                        while (!reader.EndOfStream)
-        //                        {
-        //                            var line = reader.ReadLine();
-        //                            var values = line.Split(',');
-        //                            // if (ai != 0)
-        //                            // {
-        //                            PaymentsUTRReference deb = new PaymentsUTRReference();
-        //                            deb.ORGINV = values[07];
-        //                            deb.PYMTREF = values[10];
-
-
-        //                            var obj1 = from pa in empList
-        //                                       where pa.TransactionId == deb.ORGINV
-
-        //                                       select pa;
-
-        //                            var obj1vendor = from pa in AllvendorList
-        //                                             where pa.cinvoiceno == deb.ORGINV
-        //                                             select pa;
-        //                            foreach (var pp in obj1vendor)
-        //                            {
-
-        //                                deb.ORGINV = pp.csapremarks;
-        //                                deb.vendor = pp.cvendorcode;
-        //                                deb.compcode = pp.corgcode;
-
-        //                            }
-
-        //                            var objadvance = from pa in AdvanceList
-        //                                             where pa.cinvoiceno == deb.ORGINV
-        //                                             select pa;
-
-        //                            foreach (var pp in objadvance)
-        //                            {
-        //                                Advanceutr objmodel = new Advanceutr();
-        //                                objmodel.cinvoiceno = pp.cinvoiceno;
-        //                                objmodel.cvendorcode = pp.cvendorcode;
-        //                                objmodel.csapremarks = pp.csapremarks;
-        //                                objmodel.UTR = deb.PYMTREF;
-        //                                objmodel.corgcode = pp.corgcode;
-
-        //                                deb.ORGINV = pp.csapremarks;
-        //                                deb.vendor = pp.cvendorcode;
-        //                                deb.compcode = pp.corgcode;
-        //                                deb.PYMTREF = values[10];
-        //                                objAdvanceutrlist.Add(objmodel);
-        //                            }
-
-
-
-        //                            //var obj1vendor = from pa in AllvendorList
-        //                            //                 where pa.cinvoiceno == deb.ORGINV
-        //                            //                 select pa;
-
-
-
-
-        //                            foreach (var pp in obj1)
-        //                            {
-        //                                painterutr objmodel = new painterutr();
-
-        //                                objmodel.TransactionId = pp.TransactionId;
-        //                                objmodel.PainterName = pp.PainterName;
-        //                                objmodel.UTR = deb.PYMTREF;
-        //                                objutrlist.Add(objmodel);
-        //                            }
-        //                            // if (objmodel!=null)
-        //                            //objutrlist.Add(objmodel);
-
-
-        //                            //  Prod
-        //                            // var client = new RestClient($"https://sap.sheenlac.com:44301/sap/zapi_service/ZFI_PYMTREF_UPD?sap-client=500");
-        //                            //live
-        //                            //client.Authenticator = new HttpBasicAuthenticator("MAPOL_API", "Mapol@123$");
-
-        //                            ////DEV
-        //                            ///
-        //                            string msg = string.Empty;
-        //                            try
-        //                            {
-
-
-
-        //                                //  Prod
-        //                                var client = new RestClient($"https://sap.sheenlac.com:44301/sap/zapi_service/ZFI_PYMTREF_UPD?sap-client=500");
-        //                                //live
-        //                                client.Authenticator = new HttpBasicAuthenticator("MAPOL_API", "Mapol@123$");
-
-
-        //                                // var client = new RestClient($"https://webdevqas.sheenlac.com:44306/sap/zapi_service/ZFI_PYMTREF_UPD?sap-lient=700");
-
-        //                                ////                   //dev
-        //                                //client.Authenticator = new HttpBasicAuthenticator("MAPOL", "Sheenlac@123");
-
-        //                                // client.Authenticator = new HttpBasicAuthenticator("MAPOL_TST", "Sheenlac@12");
-        //                                var jsondata = "";
-        //                                var request = new RestRequest(jsondata, Method.Post);
-        //                                request.RequestFormat = DataFormat.Json;
-        //                                request.AddJsonBody(deb);
-        //                                RestResponse response = await client.PostAsync(request);
-
-        //                                //msg = response.Content;
-        //                               // bool b1 = msg.Contains("Error");
-
-        //                            }
-        //                            catch (Exception)
-        //                            {
-
-
-        //                            }
-        //                            ai++;
-
-
-        //                            using (SqlConnection con2 = new SqlConnection(this.Configuration.GetConnectionString("Database")))
-        //                            {
-
-        //                                string query2 = "insert into tbl_vendorutrlog (filename,invoiceno,utr,response,createddate) values (@filename,@invoiceno,@utr,@response,@createddate)";
-
-        //                                using (SqlCommand cmd2 = new SqlCommand(query2, con2))
-        //                                {
-
-
-        //                                    cmd2.Parameters.AddWithValue("@filename", file.Name);
-        //                                    cmd2.Parameters.AddWithValue("@invoiceno", deb.ORGINV ?? "");
-        //                                    cmd2.Parameters.AddWithValue("@utr", deb.PYMTREF);
-        //                                    cmd2.Parameters.AddWithValue("@response", msg);
-        //                                    cmd2.Parameters.AddWithValue("@createddate", DateTime.Now);
-
-        //                                    con2.Open();
-        //                                    int iii = cmd2.ExecuteNonQuery();
-        //                                    if (iii > 0)
-        //                                    {
-        //                                        // return StatusCode(200);
-        //                                    }
-        //                                    con2.Close();
-        //                                }
-        //                            }
-
-        //                        }
-
-
-
-        //                    }
-        //                    try
-        //                    {
-        //                        //file.Name     SHEENLAC_EEN72RBI_EEN72RBI1502.335
-        //                        string allfilename = "SHEENLAC_EEN72RBI_" + file.Name;
-        //                        using (SqlConnection con2 = new SqlConnection(this.Configuration.GetConnectionString("Database")))
-        //                        {
-
-        //                            string query2 = "update tbl_bankfilename set Status=@Status";
-
-        //                            using (SqlCommand cmd2 = new SqlCommand(query2, con2))
-        //                            {
-        //                                cmd2.Parameters.AddWithValue("@Status", "");
-
-        //                                con2.Open();
-        //                                int iii = cmd2.ExecuteNonQuery();
-        //                                if (iii > 0)
-        //                                {
-
-        //                                }
-        //                                con2.Close();
-        //                            }
-        //                        }
-        //                    }
-        //                    catch (Exception)
-        //                    {
-        //                    }
-
-        //                    //   }
-
-        //                }
-
-        //            }
-        //            catch (Exception ex)
-        //            {
-
-        //            }
-
-        //            string op = JsonConvert.SerializeObject(objutrlist, Formatting.Indented);
-
-
-
-
-        //            dynamic data = JsonConvert.DeserializeObject<dynamic>(op.ToString());
-
-        //            string conutr = @"""excelUtrUpdtData""";
-        //            string jsdata = string.Empty;
-        //            jsdata = "{" + conutr + ":" + data + "}";
-        //            //jsdata = jsdata.Replace("Transaction Id", "TransactionId");
-        //            //jsdata = jsdata.Replace("Painter Name", "PainterName");
-
-
-
-        //            //-------------
-        //            dynamic data3 = JsonConvert.DeserializeObject<dynamic>(jsdata.ToString());
-
-
-
-        //            var json = Newtonsoft.Json.JsonConvert.SerializeObject(data3);
-        //            var data1 = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
-
-
-
-
-
-        //            Username = "sureshbv@sheenlac.in";
-        //            Password = "admin123";
-
-        //            Token token = new Token();
-        //            HttpClientHandler handler = new HttpClientHandler();
-        //            HttpClient client1 = new HttpClient(handler);
-        //            var RequestBody = new Dictionary<string, string>
-        //                {
-        //                {"username", Username},
-        //                {"password", Password},
-        //                };
-        //            var tokenResponse = client1.PostAsync(baseAddress, new FormUrlEncodedContent(RequestBody)).Result;
-
-        //            if (tokenResponse.IsSuccessStatusCode)
-        //            {
-        //                var JsonContent = tokenResponse.Content.ReadAsStringAsync().Result;
-
-        //                JObject studentObj = JObject.Parse(JsonContent);
-
-        //                var result2 = JObject.Parse(JsonContent);   //parses entire stream into JObject, from which you can use to query the bits you need.
-        //                var items = result2["data"].Children().ToList();   //Get the sections you need and save as enumerable (will be in the form of JTokens)
-
-        //                token.access_token = (string)items[0];
-        //                token.Error = null;
-        //            }
-        //            else
-        //            {
-        //                token.Error = "Not able to generate Access Token Invalid usrename or password";
-        //            }
-        //            client1.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.access_token);
-
-
-        //            //dev
-        //            //  var url = "http://13.233.6.115/api/v2/cash_report/excelUTRUpdate";
-        //            //live
-        //            var url = "http://13.234.246.143/api/v2/cash_report/excelUTRUpdate";
-
-        //              var response1 = client1.PostAsync(url, data1);
-
-        //            return StatusCode(200, "200");
-
-        //        }
+    
 
         [Route("DMSInvoiceCancel")]
         [HttpPost]
@@ -2230,6 +1816,7 @@ namespace SheenlacMISPortal.Controllers
             return Ok(response.Content);
         }
 
+
         [HttpPost]
         [Route("UpdateVendorUTR")]
         public async Task<IActionResult> UpdateVendorUTR()
@@ -2245,7 +1832,6 @@ namespace SheenlacMISPortal.Controllers
                 {
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    //  cmd.Parameters.AddWithValue("@FilterValue1", file.Name);
 
                     con.Open();
 
@@ -2262,8 +1848,6 @@ namespace SheenlacMISPortal.Controllers
     }).ToList();
 
 
-
-
             var AdvanceList = ds3.Tables[1].AsEnumerable()
    .Select(dataRow => new Advanceutr
    {
@@ -2271,8 +1855,6 @@ namespace SheenlacMISPortal.Controllers
        cvendorcode = dataRow.Field<string>("cvendorcode"),
        csapremarks = dataRow.Field<string>("csapremarks"),
        corgcode = dataRow.Field<string>("corgcode")
-
-
    }).ToList();
 
 
@@ -2288,16 +1870,10 @@ namespace SheenlacMISPortal.Controllers
     corgcode = dataRow.Field<string>("corgcode")
 }).ToList();
 
-
-
-
             try
             {
-
-
-
-                string[] filesauto = Directory.GetFiles(@"D:\HDFC_UTR");
-                var directory = new DirectoryInfo(@"D:\HDFC_UTR");
+                string[] filesauto = Directory.GetFiles(@"D:\HDFC\Reverse\bkup1");  //D:\HDFC_UTR
+                var directory = new DirectoryInfo(@"D:\HDFC\Reverse\bkup1"); //D:\HDFC_UTR
                 var myFile = (from f in directory.GetFiles()
                               orderby f.LastWriteTime descending
                               select f).First();
@@ -2308,12 +1884,8 @@ namespace SheenlacMISPortal.Controllers
 
                 string filepath = myFile.FullName;
 
-                // myFile3.Count
                 foreach (FileInfo file in myFile3)
                 {
-
-
-
                     DataSet ds2 = new DataSet();
                     string dsquery1 = "sp_Get_utrfileexist";
                     using (SqlConnection con = new SqlConnection(this.Configuration.GetConnectionString("Database")))
@@ -2335,73 +1907,51 @@ namespace SheenlacMISPortal.Controllers
                     int maxno1 = Convert.ToInt32(ds2.Tables[0].Rows[0][0].ToString());
                     if (maxno1 == 1)
                     {
-                        //if (filepath != file)
-                        //{
+
                         try
                         {
                             FileInfo fi = new FileInfo(file.FullName);
                             fi.Delete();
+
                         }
                         catch (Exception ex)
                         {
 
                         }
 
-                        // fi.Delete();
                     }
-                    //}
-
                 }
-
-
-
-
             }
             catch (Exception ex)
             {
-
-
             }
-
-
-
-
             List<string> files = new List<string>();
-            //E:\Auto\Reverse\bkup1
-            //var directory1 = new DirectoryInfo(@"E:\Auto\Reverse\bkup1");
-            var directory1 = new DirectoryInfo(@"D:\HDFC_UTR");
+            var directory1 = new DirectoryInfo(@"D:\HDFC\Reverse\bkup1");
             var myFile1 = directory1.GetFiles();
 
-            // string[] filesautoprocess = Directory.GetFiles(@"D:\HDFC_UTR");
-            //  string[] filesautoprocess = myFile1;
             string filepathprocess = string.Empty;
 
             try
             {
 
-
-                //filelistname = myFile.Name;
                 foreach (var file in myFile1)
                 {
 
                     DataSet ds = new DataSet();
-
                     int ai = 0;
-
-
-
-
                     List<string> listA = new List<string>();
                     string paths = file.FullName;
                     using (var reader = new StreamReader(paths))
+
+
+
                     {
                         List<string> listB = new List<string>();
                         while (!reader.EndOfStream)
                         {
                             var line = reader.ReadLine();
                             var values = line.Split(',');
-                            // if (ai != 0)
-                            // {
+
                             PaymentsUTRReference deb = new PaymentsUTRReference();
                             deb.ORGINV = values[07];
                             deb.PYMTREF = values[10];
@@ -2418,14 +1968,17 @@ namespace SheenlacMISPortal.Controllers
                             foreach (var pp in obj1vendor)
                             {
 
-                                deb.ORGINV = pp.csapremarks;
                                 deb.vendor = pp.cvendorcode;
                                 deb.compcode = pp.corgcode;
 
                             }
+                            string invoiceNoFromFile = values[7];
+                            string utrFromFile = values[10];
 
+                            deb.ORGINV = invoiceNoFromFile;
+                            deb.PYMTREF = utrFromFile;
                             var objadvance = from pa in AdvanceList
-                                             where pa.cinvoiceno == deb.ORGINV
+                                             where pa.cinvoiceno == invoiceNoFromFile
                                              select pa;
 
                             foreach (var pp in objadvance)
@@ -2436,20 +1989,11 @@ namespace SheenlacMISPortal.Controllers
                                 objmodel.csapremarks = pp.csapremarks;
                                 objmodel.UTR = deb.PYMTREF;
                                 objmodel.corgcode = pp.corgcode;
-
-                                deb.ORGINV = pp.csapremarks;
                                 deb.vendor = pp.cvendorcode;
                                 deb.compcode = pp.corgcode;
                                 deb.PYMTREF = values[10];
                                 objAdvanceutrlist.Add(objmodel);
                             }
-
-
-
-                            //var obj1vendor = from pa in AllvendorList
-                            //                 where pa.cinvoiceno == deb.ORGINV
-                            //                 select pa;
-
 
                             string painters = string.Empty;
 
@@ -2463,22 +2007,10 @@ namespace SheenlacMISPortal.Controllers
                                 painters = "Painter";
                                 objutrlist.Add(objmodel);
                             }
-                            // if (objmodel!=null)
-                            //objutrlist.Add(objmodel);
 
-
-                            //  Prod
-                            // var client = new RestClient($"https://sap.sheenlac.com:44301/sap/zapi_service/ZFI_PYMTREF_UPD?sap-client=500");
-                            //live
-                            //client.Authenticator = new HttpBasicAuthenticator("MAPOL_API", "Mapol@123$");
-
-                            ////DEV
-                            ///
                             string msg = string.Empty;
                             try
                             {
-
-
 
                                 //  Prod
                                 var client = new RestClient($"https://sap.sheenlac.com:44301/sap/zapi_service/ZFI_PYMTREF_UPD?sap-client=500");
@@ -2496,19 +2028,14 @@ namespace SheenlacMISPortal.Controllers
                                     {
                                         if (deb.vendor != null)
                                         {
-                                           RestResponse response = await client.PostAsync(request);
+                                            RestResponse response = await client.PostAsync(request);
                                         }
                                     }
 
                                 }
-
-
-
                             }
                             catch (Exception)
                             {
-
-
                             }
                             ai++;
 
@@ -2520,28 +2047,21 @@ namespace SheenlacMISPortal.Controllers
 
                                 using (SqlCommand cmd2 = new SqlCommand(query2, con2))
                                 {
-
-
                                     cmd2.Parameters.AddWithValue("@filename", file.Name);
                                     cmd2.Parameters.AddWithValue("@invoiceno", deb.ORGINV ?? "");
                                     cmd2.Parameters.AddWithValue("@utr", deb.PYMTREF);
                                     cmd2.Parameters.AddWithValue("@response", msg);
                                     cmd2.Parameters.AddWithValue("@createddate", DateTime.Now);
-
                                     con2.Open();
                                     int iii = cmd2.ExecuteNonQuery();
                                     if (iii > 0)
                                     {
-                                        // return StatusCode(200);
                                     }
                                     con2.Close();
                                 }
                             }
 
                         }
-
-
-
                     }
                     try
                     {
@@ -2549,13 +2069,10 @@ namespace SheenlacMISPortal.Controllers
                         string allfilename = "SHEENLAC_EEN72RBI_" + file.Name;
                         using (SqlConnection con2 = new SqlConnection(this.Configuration.GetConnectionString("Database")))
                         {
-
                             string query2 = "update tbl_bankfilename set Status=@Status";
-
                             using (SqlCommand cmd2 = new SqlCommand(query2, con2))
                             {
                                 cmd2.Parameters.AddWithValue("@Status", "");
-
                                 con2.Open();
                                 int iii = cmd2.ExecuteNonQuery();
                                 if (iii > 0)
@@ -2565,16 +2082,15 @@ namespace SheenlacMISPortal.Controllers
                                 con2.Close();
                             }
                         }
+
                     }
                     catch (Exception)
                     {
+
                     }
-
-                    //   }
-
                 }
-
             }
+
             catch (Exception ex)
             {
 
@@ -2582,28 +2098,17 @@ namespace SheenlacMISPortal.Controllers
 
             string op = JsonConvert.SerializeObject(objutrlist, Formatting.Indented);
 
-
-
-
             dynamic data = JsonConvert.DeserializeObject<dynamic>(op.ToString());
 
             string conutr = @"""excelUtrUpdtData""";
             string jsdata = string.Empty;
             jsdata = "{" + conutr + ":" + data + "}";
 
-
-
             //-------------
             dynamic data3 = JsonConvert.DeserializeObject<dynamic>(jsdata.ToString());
 
-
-
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(data3);
             var data1 = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
-
-
-
-
 
             Username = "sureshbv@sheenlac.in";
             Password = "admin123";
@@ -2641,371 +2146,14 @@ namespace SheenlacMISPortal.Controllers
             //  var url = "http://13.233.6.115/api/v2/cash_report/excelUTRUpdate";
             //live
             var url = "http://13.234.246.143/api/v2/cash_report/excelUTRUpdate";
-
-           var response1 = client1.PostAsync(url, data1);
-
+            var response1 = client1.PostAsync(url, data1);
             return StatusCode(200, "200");
 
         }
 
 
-        //     [HttpPost]
-        //     [Route("UpdateVendorUTR")]
-        //     public async Task<IActionResult> UpdateVendorUTR()
-        //     {
 
 
-        //         DataSet ds3 = new DataSet();
-        //         string dsquery3 = "sp_Get_PainterID";
-        //         using (SqlConnection con = new SqlConnection(this.Configuration.GetConnectionString("Database")))
-        //         {
-
-        //             using (SqlCommand cmd = new SqlCommand(dsquery3))
-        //             {
-        //                 cmd.Connection = con;
-        //                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        //                 //  cmd.Parameters.AddWithValue("@FilterValue1", file.Name);
-
-        //                 con.Open();
-
-        //                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        //                 adapter.Fill(ds3);
-        //                 con.Close();
-        //             }
-        //         }
-        //         var empList = ds3.Tables[0].AsEnumerable()
-        // .Select(dataRow => new painterutr
-        // {
-        //     PainterName = dataRow.Field<string>("cvendorname"),
-        //     TransactionId = dataRow.Field<string>("cinvoiceno")
-        // }).ToList();
-        //         List<painterutr> objutrlist = new List<painterutr>();
-        //         List<Advanceutr> objAdvanceutrlist = new List<Advanceutr>();
-
-
-        //             var AdvanceList = ds3.Tables[1].AsEnumerable()
-        //.Select(dataRow => new Advanceutr
-        //{
-        //    cinvoiceno = dataRow.Field<string>("cinvoiceno"),
-        //    cvendorcode = dataRow.Field<string>("cvendorcode"),
-        //    csapremarks = dataRow.Field<string>("csapremarks"),
-        //    corgcode = dataRow.Field<string>("corgcode")
-
-
-        //}).ToList();
-
-
-
-
-
-
-        //         try
-        //         {
-
-
-
-        //             string[] filesauto = Directory.GetFiles(@"D:\HDFC_UTR");
-        //             var directory = new DirectoryInfo(@"D:\HDFC_UTR");
-        //             var myFile = (from f in directory.GetFiles()
-        //                           orderby f.LastWriteTime descending
-        //                           select f).First();
-
-        //             var myFile3 = (from f in directory.GetFiles()
-        //                            select f).ToList();
-
-
-        //             string filepath = myFile.FullName;
-
-        //             // myFile3.Count
-        //             foreach (FileInfo file in myFile3)
-        //             {
-
-
-
-        //                 DataSet ds2 = new DataSet();
-        //                 string dsquery1 = "sp_Get_utrfileexist";
-        //                 using (SqlConnection con = new SqlConnection(this.Configuration.GetConnectionString("Database")))
-        //                 {
-
-        //                     using (SqlCommand cmd = new SqlCommand(dsquery1))
-        //                     {
-        //                         cmd.Connection = con;
-        //                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        //                         cmd.Parameters.AddWithValue("@FilterValue1", file.Name);
-
-        //                         con.Open();
-
-        //                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        //                         adapter.Fill(ds2);
-        //                         con.Close();
-        //                     }
-        //                 }
-        //                 int maxno1 = Convert.ToInt32(ds2.Tables[0].Rows[0][0].ToString());
-        //                 if (maxno1 == 1)
-        //                 {
-        //                     //if (filepath != file)
-        //                     //{
-
-        //                     FileInfo fi = new FileInfo(file.FullName);
-
-        //                     fi.Delete();
-        //                 }
-        //                 //}
-
-        //             }
-
-
-
-
-        //         }
-        //         catch (Exception)
-        //         {
-
-
-        //         }
-
-
-
-
-        //         List<string> files = new List<string>();
-        //         //E:\Auto\Reverse\bkup1
-        //         //var directory1 = new DirectoryInfo(@"E:\Auto\Reverse\bkup1");
-        //         var directory1 = new DirectoryInfo(@"D:\HDFC_UTR");
-        //         var myFile1 = directory1.GetFiles();
-
-        //         // string[] filesautoprocess = Directory.GetFiles(@"D:\HDFC_UTR");
-        //         //  string[] filesautoprocess = myFile1;
-        //         string filepathprocess = string.Empty;
-
-
-        //         //filelistname = myFile.Name;
-        //         foreach (var file in myFile1)
-        //         {
-
-        //             DataSet ds = new DataSet();
-
-        //             int ai = 0;
-
-
-
-
-        //             List<string> listA = new List<string>();
-        //             string paths = file.FullName;
-        //             using (var reader = new StreamReader(paths))
-        //             {
-        //                 List<string> listB = new List<string>();
-        //                 while (!reader.EndOfStream)
-        //                 {
-        //                     var line = reader.ReadLine();
-        //                     var values = line.Split(',');
-        //                     // if (ai != 0)
-        //                     // {
-        //                     PaymentsUTRReference deb = new PaymentsUTRReference();
-        //                     deb.ORGINV = values[07];
-        //                     deb.PYMTREF = values[10];
-
-
-        //                     var obj1 = from pa in empList
-        //                                where pa.TransactionId == deb.ORGINV
-
-        //                                select pa;
-
-        //                     var objadvance = from pa in AdvanceList
-        //                                      where pa.cinvoiceno == deb.ORGINV
-        //                                      select pa;
-
-
-
-        //                     foreach (var pp in obj1)
-        //                     {
-        //                         painterutr objmodel = new painterutr();
-
-        //                         objmodel.TransactionId = pp.TransactionId;
-        //                         objmodel.PainterName = pp.PainterName;
-        //                         objmodel.UTR = deb.PYMTREF;
-        //                         objutrlist.Add(objmodel);
-        //                     }
-
-
-        //                     foreach (var pp in objadvance)
-        //                     {
-        //                         Advanceutr objmodel = new Advanceutr();
-        //                         objmodel.cinvoiceno = pp.cinvoiceno;
-        //                         objmodel.cvendorcode = pp.cvendorcode;
-        //                         objmodel.csapremarks = pp.csapremarks;
-        //                         objmodel.UTR = deb.PYMTREF;
-        //                         objmodel.corgcode = pp.corgcode;
-
-        //                         deb.ORGINV = pp.csapremarks;
-        //                         deb.vendor = pp.cvendorcode;
-        //                         deb.compcode = pp.corgcode;
-        //                         deb.PYMTREF = values[10];
-        //                         objAdvanceutrlist.Add(objmodel);
-        //                     }
-
-        //                     string msg = string.Empty;
-        //                     try
-        //                     {
-
-
-
-        //                         //  Prod
-        //                         var client = new RestClient($"https://sap.sheenlac.com:44301/sap/zapi_service/ZFI_PYMTREF_UPD?sap-client=500");
-        //                         //live
-        //                         client.Authenticator = new HttpBasicAuthenticator("MAPOL_API", "Mapol@123$");
-
-        //                         var jsondata = "";
-        //                         var request = new RestRequest(jsondata, Method.Post);
-        //                         request.RequestFormat = DataFormat.Json;
-        //                         request.AddJsonBody(deb);
-
-
-        //                         RestResponse response = await client.PostAsync(request);
-
-        //                         msg = response.Content;
-        //                         bool b1 = msg.Contains("Error");
-
-        //                     }
-        //                     catch (Exception)
-        //                     {
-
-
-        //                     }
-        //                     ai++;
-
-
-        //                     using (SqlConnection con2 = new SqlConnection(this.Configuration.GetConnectionString("Database")))
-        //                     {
-
-        //                         string query2 = "insert into tbl_vendorutrlog (filename,invoiceno,utr,response,createddate) values (@filename,@invoiceno,@utr,@response,@createddate)";
-
-        //                         using (SqlCommand cmd2 = new SqlCommand(query2, con2))
-        //                         {
-
-
-        //                             cmd2.Parameters.AddWithValue("@filename", file.Name);
-        //                             cmd2.Parameters.AddWithValue("@invoiceno", deb.ORGINV);
-        //                             cmd2.Parameters.AddWithValue("@utr", deb.PYMTREF);
-        //                             cmd2.Parameters.AddWithValue("@response", msg);
-        //                             cmd2.Parameters.AddWithValue("@createddate", DateTime.Now);
-
-        //                             con2.Open();
-        //                             int iii = cmd2.ExecuteNonQuery();
-        //                             if (iii > 0)
-        //                             {
-        //                                 // return StatusCode(200);
-        //                             }
-        //                             con2.Close();
-        //                         }
-        //                     }
-
-        //                 }
-
-
-
-        //             }
-        //             try
-        //             {
-        //                 //file.Name     SHEENLAC_EEN72RBI_EEN72RBI1502.335
-        //                 string allfilename = "SHEENLAC_EEN72RBI_" + file.Name;
-        //                 using (SqlConnection con2 = new SqlConnection(this.Configuration.GetConnectionString("Database")))
-        //                 {
-
-        //                     string query2 = "update tbl_bankfilename set Status=@Status";
-
-        //                     using (SqlCommand cmd2 = new SqlCommand(query2, con2))
-        //                     {
-        //                         cmd2.Parameters.AddWithValue("@Status", "");
-
-        //                         con2.Open();
-        //                         int iii = cmd2.ExecuteNonQuery();
-        //                         if (iii > 0)
-        //                         {
-
-        //                         }
-        //                         con2.Close();
-        //                     }
-        //                 }
-        //             }
-        //             catch (Exception)
-        //             {
-        //             }
-
-        //             //   }
-
-        //         }
-
-
-
-        //         string op = JsonConvert.SerializeObject(objutrlist, Formatting.Indented);
-
-
-
-
-        //         dynamic data = JsonConvert.DeserializeObject<dynamic>(op.ToString());
-
-        //         string conutr = @"""excelUtrUpdtData""";
-        //         string jsdata = string.Empty;
-        //         jsdata = "{" + conutr + ":" + data + "}";
-        //         //jsdata = jsdata.Replace("Transaction Id", "TransactionId");
-        //         //jsdata = jsdata.Replace("Painter Name", "PainterName");
-
-
-
-        //         //-------------
-        //         dynamic data3 = JsonConvert.DeserializeObject<dynamic>(jsdata.ToString());
-
-
-
-        //         var json = Newtonsoft.Json.JsonConvert.SerializeObject(data3);
-        //         var data1 = new System.Net.Http.StringContent(json, Encoding.UTF8, "application/json");
-
-
-
-
-
-        //         Username = "sureshbv@sheenlac.in";
-        //         Password = "admin123";
-
-        //         Token token = new Token();
-        //         HttpClientHandler handler = new HttpClientHandler();
-        //         HttpClient client1 = new HttpClient(handler);
-        //         var RequestBody = new Dictionary<string, string>
-        //                 {
-        //                 {"username", Username},
-        //                 {"password", Password},
-        //                 };
-        //         var tokenResponse = client1.PostAsync(baseAddress, new FormUrlEncodedContent(RequestBody)).Result;
-
-        //         if (tokenResponse.IsSuccessStatusCode)
-        //         {
-        //             var JsonContent = tokenResponse.Content.ReadAsStringAsync().Result;
-
-        //             JObject studentObj = JObject.Parse(JsonContent);
-
-        //             var result2 = JObject.Parse(JsonContent);   //parses entire stream into JObject, from which you can use to query the bits you need.
-        //             var items = result2["data"].Children().ToList();   //Get the sections you need and save as enumerable (will be in the form of JTokens)
-
-        //             token.access_token = (string)items[0];
-        //             token.Error = null;
-        //         }
-        //         else
-        //         {
-        //             token.Error = "Not able to generate Access Token Invalid usrename or password";
-        //         }
-        //         client1.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.access_token);
-
-
-        //         //dev
-        //         //  var url = "http://13.233.6.115/api/v2/cash_report/excelUTRUpdate";
-        //         //live
-        //         var url = "http://13.234.246.143/api/v2/cash_report/excelUTRUpdate";
-
-        //         var response1 = client1.PostAsync(url, data1);
-
-        //         return StatusCode(200, "200");
-
-        //     }
 
         [Route("POAddtinal")]
         [HttpPost]
